@@ -1398,8 +1398,8 @@ describe('annotation effects', function() {
                     mouseEvent('mouseout', pos[0], pos[1]);
                     mouseEvent('mousemove', 0, 0);
 
-                    setTimeout(resolve, HOVERMINTIME * 1.1);
-                }, HOVERMINTIME * 1.1);
+                    setTimeout(resolve, HOVERMINTIME);
+                }, HOVERMINTIME);
             });
         }
 

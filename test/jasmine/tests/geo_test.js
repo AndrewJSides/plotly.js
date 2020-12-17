@@ -876,14 +876,12 @@ describe('Test geo interactions', function() {
 
                 Plotly.relayout(gd, update)
                 .then(function() {
-                    setTimeout(function() {
-                        mouseEvent('mousemove', 288, 170);
+                    mouseEvent('mousemove', 288, 170);
 
-                        expect(cnt).toEqual(1);
-
-                        done();
-                    }, HOVERMINTIME + 10);
-                });
+                    expect(cnt).toEqual(1);
+                })
+                .catch(failTest)
+                .then(done);
             });
 
             it('should not be triggered when pt *location* does not have matching feature', function(done) {
@@ -892,14 +890,12 @@ describe('Test geo interactions', function() {
                 };
 
                 Plotly.restyle(gd, update).then(function() {
-                    setTimeout(function() {
-                        mouseEvent('mousemove', 300, 230);
+                    mouseEvent('mousemove', 300, 230);
 
-                        expect(cnt).toEqual(1);
-
-                        done();
-                    }, HOVERMINTIME + 10);
-                });
+                    expect(cnt).toEqual(1);
+                })
+                .catch(failTest)
+                .then(done);
             });
         });
 
@@ -944,7 +940,7 @@ describe('Test geo interactions', function() {
                 setTimeout(function() {
                     mouseEvent('mousemove', 400, 200);
                     done();
-                }, HOVERMINTIME + 10);
+                }, HOVERMINTIME);
             });
 
             it('should contain the correct fields', function() {
@@ -1033,7 +1029,7 @@ describe('Test geo interactions', function() {
                 setTimeout(function() {
                     mouseEvent('mousemove', 300, 235);
                     done();
-                }, HOVERMINTIME + 100);
+                }, HOVERMINTIME);
             });
 
             it('should contain the correct fields', function() {
@@ -1973,7 +1969,7 @@ describe('Test event property of interactions on a geo plot:', function() {
         });
 
         it('should contain the correct fields', function(done) {
-            move(pointPos[0], pointPos[1], nearPos[0], nearPos[1], HOVERMINTIME + 10).then(function() {
+            move(pointPos[0], pointPos[1], nearPos[0], nearPos[1], HOVERMINTIME).then(function() {
                 var pt = futureData.points[0];
                 var evt = futureData.event;
 

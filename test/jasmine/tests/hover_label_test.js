@@ -1501,7 +1501,7 @@ describe('hover info', function() {
             Promise.resolve().then(function() {
                 Fx.hover(gd, event, 'xy');
             })
-            .then(delay(HOVERMINTIME * 1.1))
+            .then(delay(HOVERMINTIME))
             .then(function() {
                 Fx.unhover(gd);
             })
@@ -4529,7 +4529,7 @@ describe('touch devices', function() {
                     .then(function() {
                         touch(touchPoint);
                     })
-                    .then(delay(HOVERMINTIME * 1.1))
+                    .then(delay(HOVERMINTIME))
                     .then(function() {
                         expect(clickHandler).toHaveBeenCalled();
                         expect(hoverHandler).not.toHaveBeenCalled();
@@ -4560,7 +4560,7 @@ describe('dragmode: false', function() {
                 mouseEvent('mousemove', 105, 300);
                 mouseEvent('mousemove', 108, 303);
             })
-            .then(delay(HOVERMINTIME * 1.1))
+            .then(delay(HOVERMINTIME))
             .then(function() {
                 expect(hoverHandler).toHaveBeenCalled();
             })

@@ -23,7 +23,7 @@ function move(fromX, fromY, toX, toY, delay) {
         setTimeout(function() {
             mouseEvent('mousemove', toX, toY);
             resolve();
-        }, delay || HOVERMINTIME + 10);
+        }, delay || HOVERMINTIME);
     });
 }
 
@@ -1068,7 +1068,7 @@ describe('Test plotly events on a scattermapbox plot:', function() {
         });
 
         it('@gl should contain the correct fields', function(done) {
-            move(pointPos[0], pointPos[1], nearPos[0], nearPos[1], HOVERMINTIME + 10).then(function() {
+            move(pointPos[0], pointPos[1], nearPos[0], nearPos[1], HOVERMINTIME).then(function() {
                 var pt = futureData.points[0];
 
                 expect(Object.keys(pt)).toEqual([
@@ -1199,7 +1199,7 @@ describe('Test plotly events on a scattermapbox plot when css transform is prese
         });
 
         it('@gl should contain the correct fields', function(done) {
-            move(pointPos[0], pointPos[1], nearPos[0], nearPos[1], HOVERMINTIME + 10).then(function() {
+            move(pointPos[0], pointPos[1], nearPos[0], nearPos[1], HOVERMINTIME).then(function() {
                 var pt = futureData.points[0];
 
                 expect(Object.keys(pt)).toEqual([
